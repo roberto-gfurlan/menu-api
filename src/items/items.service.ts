@@ -62,3 +62,11 @@ export const update = async (
 
   return items[id];
 };
+
+export const remove = async (id: number): Promise<null | void> => {
+  const item = await find(id);
+  if (!item) {
+    return null;
+  }
+  delete items[id];
+}
